@@ -64,6 +64,10 @@ void loop()
       CRGB color = ColorFromPalette(gPalette, colorindex);
       leds[i] = color;
     }
+
+    // Keep first two LEDs on pigtail off
+    leds[0] = CRGB::Black;
+    leds[1] = CRGB::Black;
   
     FastLED.show(); 
     FastLED.delay(1000 / FRAMES_PER_SECOND);
