@@ -1,0 +1,268 @@
+{
+  "Uuid": "187802c7-8786-4a8c-a2c3-51f3849c9cef",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "Home",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Math": {
+        "Key": "DSCore.Math",
+        "Value": "DSCoreNodes.dll"
+      },
+      "Circle": {
+        "Key": "Autodesk.DesignScript.Geometry.Circle",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Vector": {
+        "Key": "Autodesk.DesignScript.Geometry.Vector",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "radius = 11.0;\nrows = 3;\nled_radius = 0.479;\nmargin = 1.5;\nstrand_length = 50;\n\nleds_per_row = Math.Floor(strand_length/rows);\ntotal = leds_per_row * rows;\ntheta = 0..360..#leds_per_row;\n\noutline = Circle.ByCenterPointRadius(Point.ByCoordinates(0,0,0), radius);\n\nr1 = radius - margin - led_radius/2.0;\nx1 = r1 * Math.Sin(theta);\ny1 = r1 * Math.Cos(theta);\nled1 = Circle.ByCenterPointRadius(Point.ByCoordinates(x1, y1, 0), led_radius);\n\nr2 = r1 - margin - led_radius/2.0;\nx2 = r2 * Math.Sin(theta - 180/leds_per_row);\ny2 = r2 * Math.Cos(theta - 180/leds_per_row);\nled2 = Circle.ByCenterPointRadius(Point.ByCoordinates(x2, y2, 0), led_radius);\n\nr3 = r2 - margin - led_radius/2.0;\nx3 = r3 * Math.Sin(theta);\ny3 = r3 * Math.Cos(theta);\nled3 = Circle.ByCenterPointRadius(Point.ByCoordinates(x3, y3, 0), led_radius);",
+      "Id": "3d24ca4659ec40df99561f567257f811",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7dd61ea4ee8742a7a3435f5c597f27e7",
+          "Name": "",
+          "Description": "radius",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1e87e2d03239474c8b0b20e2bb116052",
+          "Name": "",
+          "Description": "rows",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "af4e5bcfe30942d79e6f03f7b5ff6c42",
+          "Name": "",
+          "Description": "led_radius",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9e1302ff958a4110814e76dd368d3f56",
+          "Name": "",
+          "Description": "margin",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9c391e1a7f594c39ae1740d823dd0915",
+          "Name": "",
+          "Description": "strand_length",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "28d4774a62ab49e58370ad33f3f49a47",
+          "Name": "",
+          "Description": "leds_per_row",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "acbac8e93e3d4cd4a2e42248d78536fa",
+          "Name": "",
+          "Description": "total",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "80523bf272314f29b61aa3f31a5ad47c",
+          "Name": "",
+          "Description": "theta",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "46363bcaad2e40ec924a96a1c47e7065",
+          "Name": "",
+          "Description": "outline",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2f5b75fad27546738d32d79ba40edb61",
+          "Name": "",
+          "Description": "r1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ccce0dd9bb7540c295147e79170c4b2b",
+          "Name": "",
+          "Description": "x1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "95e62787e31042c0b247c935a9e5d8d7",
+          "Name": "",
+          "Description": "y1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "156e36f4eb1a42808d24266165ebbf59",
+          "Name": "",
+          "Description": "led1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b5882127e38b416ca7e45635e4d3cb30",
+          "Name": "",
+          "Description": "r2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8e6699b5bcc640a7a9396a025acea597",
+          "Name": "",
+          "Description": "x2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "165813249b644efdaf2a96d3018d0d04",
+          "Name": "",
+          "Description": "y2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ef57b492833c43748bb0154ff2d065d9",
+          "Name": "",
+          "Description": "led2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4d0cac0ecc814ce1bcc5bfecdd0c293d",
+          "Name": "",
+          "Description": "r3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "23c8dff98e42466bb21fa1e84a755040",
+          "Name": "",
+          "Description": "x3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f98042c2810245988d64424601365876",
+          "Name": "",
+          "Description": "y3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "146e1b13270c4e53ba5eceb2771ee845",
+          "Name": "",
+          "Description": "led3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.0.2821",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -18.854318057170023,
+      "EyeY": 38.527661152605631,
+      "EyeZ": 10.447098870556031,
+      "LookX": -0.069732015888611443,
+      "LookY": -36.839570531943004,
+      "LookZ": -4.9283638105769807,
+      "UpX": -0.0132944938979916,
+      "UpY": 0.34202014332567005,
+      "UpZ": -0.93959857279132064
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "3d24ca4659ec40df99561f567257f811",
+        "Excluded": false,
+        "X": -139.16565595591192,
+        "Y": 33.352213840016461
+      }
+    ],
+    "Annotations": [],
+    "X": 171.51560115146475,
+    "Y": -1.0493527580311621,
+    "Zoom": 0.9379150385426579
+  }
+}
