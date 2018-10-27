@@ -26,7 +26,12 @@ void setup() {
     FastLED.addLeds<CHIPSET, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
     FastLED.setBrightness(BRIGHTNESS);
 
+    // Xmas
     gPalette = CRGBPalette16(CRGB::Red, CRGB::White, CRGB::Green, CRGB::Red);
+    // Flamingo
+    //gPalette = CRGBPalette16(CRGB::Black, CRGB::HotPink, CRGB::Fuchsia, CRGB::Red);
+    // Blue/red/purple
+    //gPalette = CRGBPalette16(CRGB::Black, CRGB::Blue, CRGB::Purple, CRGB::Fuchsia);
 
 }
 
